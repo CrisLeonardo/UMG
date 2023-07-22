@@ -88,6 +88,29 @@ public class Main {
                     System.out.println("El Area de tu paralelogramo es de: " + aparalelo);
                     break;
 
+                case "Cilindro":
+                    System.out.println("Elegiste calcular un cilindro   \nDame el radio y la altura del cilindro para calcular.");
+                    System.out.println("radio: ");
+                    int radioc = scanner.nextInt();
+                    System.out.println("Altura: ");
+                    int Alturac = scanner.nextInt();
+                    double volumenC = Math.PI * Math.pow(radioc, 2) * Alturac;
+
+                    System.out.println("El volumen de tu cilindro es de: " + volumenC);
+                    break;
+
+                case "Esfera":
+                    System.out.println("Elegiste calcular una esfera \nDame el radio de la esfera para calcular.");
+                    System.out.println("radio: ");
+                    int radioe = scanner.nextInt();
+                    double areae = 4 * Math.PI * Math.pow(radioe, 2);
+
+
+                    System.out.println("El Area de tu esfera es de: " + areae);
+                    break;
+
+
+
 
 
             }
