@@ -54,10 +54,12 @@ public class Main {
 
         Pizza sm = new Pizza( nombrep , preciop , ingredientesp);
         System.out.println(sm.obtenerDetalles());
+        System.out.println("");
         PizzaItaliana sm2 = new PizzaItaliana("Italiana" , 60 , "tomate");
         System.out.println(sm2.toString());
+        System.out.println("");
         Topping sm3 = new Topping("Queso,Peperoni,Piña,Aceitunas,Carne");
         System.out.println(sm3.toString());
-        System.out.println(sm.preparPizaa());
+
     }
 }
