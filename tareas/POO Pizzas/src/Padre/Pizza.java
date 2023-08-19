@@ -24,7 +24,7 @@ public class Pizza {
     }
 
     public String obtenerDetalles(){
-        return "nombre: " + this.getNombre() + ", precio: " + this.getPrecio() + ", ingredientes: " + this.getIngredientes() + this.preparPizaa();
+        return "Nombre de lla pizza: " + this.getNombre() + ", precio: " + this.getPrecio() + ", ingredientes: " + this.getIngredientes() + this.preparPizaa();
     }
 
     //constructor
