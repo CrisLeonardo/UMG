@@ -1,0 +1,32 @@
+
+m
+java:S11925"KDefine a constant instead of duplicating this literal "idTelegram" 5 times.(…ã½‘üÿÿÿÿ8·úÕ¿í1
+i
+java:S11923"GDefine a constant instead of duplicating this literal "nombre" 3 times.(›©À²ıÿÿÿÿ8¸úÕ¿í1
+i
+java:S11924"GDefine a constant instead of duplicating this literal "correo" 6 times.(¦ø°´ûÿÿÿÿ8¸úÕ¿í1
+L	java:S106!"+Replace this use of System.out by a logger.(é»¼óüÿÿÿÿ8İúÕ¿í1
+]	java:S125&"<This block of commented-out lines of code should be removed.(ù£Åõüÿÿÿÿ8ŞúÕ¿í1
+F	java:S1067"+Replace this use of System.out by a logger.(¶¬Ä8âúÕ¿í1
+L	java:S106F"+Replace this use of System.out by a logger.(ìé“¶şÿÿÿÿ8äúÕ¿í1
+L	java:S106G"+Replace this use of System.out by a logger.(©¬òıÿÿÿÿ8åúÕ¿í1
+L	java:S106H"+Replace this use of System.out by a logger.(¨•ñºúÿÿÿÿ8åúÕ¿í1
+L	java:S106I"+Replace this use of System.out by a logger.(ä§ƒâşÿÿÿÿ8æúÕ¿í1
+G	java:S106P"+Replace this use of System.out by a logger.(¯Õé8çúÕ¿í1
+L	java:S106U"+Replace this use of System.out by a logger.(Ä½›şÿÿÿÿ8èúÕ¿í1
+L	java:S106["+Replace this use of System.out by a logger.(¢èë¹şÿÿÿÿ8éúÕ¿í1
+G	java:S106i"+Replace this use of System.out by a logger.(¯üÏ¼8ëúÕ¿í1
+G	java:S106q"+Replace this use of System.out by a logger.(Ùòñÿ8íúÕ¿í1
+G	java:S106s"+Replace this use of System.out by a logger.(Ş¾¢ÿ8íúÕ¿í1
+S
+java:S1144M"6Remove this unused private "actualizarUsuario" method.(£†ÑÎ8õúÕ¿í1
+Q
+java:S1144S"4Remove this unused private "eliminarUsuario" method.(ìçÙ¤8õúÕ¿í1
+Y
+java:S1144X"7Remove this unused private "desconectarMongoDB" method.(ùøˆÅøÿÿÿÿ8öúÕ¿í1
+V
+java:S1144^"4Remove this unused private "conectarMongoDB" method.(“‘÷ùÿÿÿÿÿ8öúÕ¿í1
+\
+java:S1144n":Remove this unused private "buscarUnUsuarioCorreo" method.(Ç€¼Àşÿÿÿÿ8öúÕ¿í1
+Y
+java:S1144"<Remove this unused private "buscarUsuariosPorCorreo" method.(¶¼‹í8öúÕ¿í1
