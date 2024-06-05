@@ -1,6 +1,8 @@
 package org.example.Modelo;
 
-public class NodoContacto {
+import java.io.Serializable;
+
+public class NodoContacto implements Serializable {
     private Contacto contacto;
     private NodoContacto izdo;
     private NodoContacto dcho;

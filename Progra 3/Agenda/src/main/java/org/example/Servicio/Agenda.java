@@ -3,6 +3,7 @@ package org.example.Servicio;
 import org.example.Modelo.Contacto;
 import org.example.Modelo.NodoContacto;
 
+import java.io.*;
 import java.time.LocalDate;
 
 public class Agenda {
@@ -12,8 +13,8 @@ public class Agenda {
         this.raiz = null;
     }
 
-    public void agregarContacto(String nombre, long telefono) {
-        Contacto nuevoContacto = new Contacto(nombre, telefono);
+    public void agregarContacto(String nombre, long telefono, String correoElectronico, LocalDate fechaNacimiento) {
+        Contacto nuevoContacto = new Contacto(nombre, telefono, correoElectronico, fechaNacimiento);
         if (this.raiz == null) {
             this.raiz = new NodoContacto(nuevoContacto);
         } else {
@@ -37,21 +38,44 @@ public class Agenda {
         }
     }
 
-    public Contacto buscarContacto(String nombre) {
-        return buscar(this.raiz, nombre);
+    public Contacto buscarContacto(String criterio) {
+        return buscar(this.raiz, criterio);
     }
 
-    private Contacto buscar(NodoContacto nodo, String nombre) {
+    private Contacto buscar(NodoContacto nodo, String criterio) {
         if (nodo == null) {
             return null;
         }
-        if (nombre.equals(nodo.getContacto().getNombre())) {
+        if (criterio.equals(nodo.getContacto().getNombre()) ||
+                criterio.equals(String.valueOf(nodo.getContacto().getTelefono())) ||
+                criterio.equals(nodo.getContacto().getCorreoElectronico())) {
             return nodo.getContacto();
-        } else if (nombre.compareTo(nodo.getContacto().getNombre()) < 0) {
-            return buscar(nodo.getIzdo(), nombre);
-        } else {
-            return buscar(nodo.getDcho(), nombre);
         }
+        Contacto encontrado = buscar(nodo.getIzdo(), criterio);
+        if (encontrado != null) {
+            return encontrado;
+        }
+        return buscar(nodo.getDcho(), criterio);
+    }
+
+    public Contacto buscar(Contacto contacto) {
+        return buscarPorContacto(this.raiz, contacto);
+    }
+
+    private Contacto buscarPorContacto(NodoContacto nodo, Contacto contacto) {
+        if (nodo == null) {
+            return null;
+        }
+        if ((contacto.getNombre() != null && contacto.getNombre().equals(nodo.getContacto().getNombre())) ||
+                (contacto.getTelefono() != 0 && contacto.getTelefono() == nodo.getContacto().getTelefono()) ||
+                (contacto.getCorreoElectronico() != null && contacto.getCorreoElectronico().equals(nodo.getContacto().getCorreoElectronico()))) {
+            return nodo.getContacto();
+        }
+        Contacto encontrado = buscarPorContacto(nodo.getIzdo(), contacto);
+        if (encontrado != null) {
+            return encontrado;
+        }
+        return buscarPorContacto(nodo.getDcho(), contacto);
     }
 
     public void eliminarContacto(String nombre) {
@@ -100,5 +124,44 @@ public class Agenda {
                     ", Correo Electrónico: " + nodo.getContacto().getCorreoElectronico() + ", Fecha de Nacimiento: " + nodo.getContacto().getFechaNacimiento());
             inOrden(nodo.getDcho());
         }
+    }
+
+
+
+    // Método para serializar (guardar) la agenda en un archivo
+    public void guardarAgenda(String nombreArchivo) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(nombreArchivo))) {
+            oos.writeObject(this.raiz); // Serializa el nodo raíz del árbol
+            System.out.println("Agenda guardada exitosamente en " + nombreArchivo);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Método para deserializar (cargar) la agenda desde un archivo
+    public void cargarAgenda(String nombreArchivo) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(nombreArchivo))) {
+            this.raiz = (NodoContacto) ois.readObject(); // Deserializa el nodo raíz del árbol
+            System.out.println("Agenda cargada exitosamente desde " + nombreArchivo);
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Contacto buscarContactoPorFechaNacimiento(LocalDate fechaNacimiento) {
+        return buscarPorFechaNacimiento(this.raiz, fechaNacimiento);
+    }
+    private Contacto buscarPorFechaNacimiento(NodoContacto nodo, LocalDate fechaNacimiento) {
+        if (nodo == null) {
+            return null;
+        }
+        if (fechaNacimiento.equals(nodo.getContacto().getFechaNacimiento())) {
+            return nodo.getContacto();
+        }
+        Contacto encontrado = buscarPorFechaNacimiento(nodo.getIzdo(), fechaNacimiento);
+        if (encontrado != null) {
+            return encontrado;
+        }
+        return buscarPorFechaNacimiento(nodo.getDcho(), fechaNacimiento);
     }
 }

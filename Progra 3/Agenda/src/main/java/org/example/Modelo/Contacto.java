@@ -1,8 +1,9 @@
 package org.example.Modelo;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Contacto {
+public class Contacto implements Serializable {
     private String nombre;
     private long telefono;
     private String correoElectronico;
@@ -15,8 +16,8 @@ public class Contacto {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public Contacto(String nombre, long telefono) {
-        this(nombre, telefono, "", null); // Llama al constructor principal
+    public Contacto(String nombre, long telefono, String correoElectronico) {
+        this(nombre, telefono, correoElectronico, null); // Llama al constructor principal
     }
 
     public String getNombre() {
